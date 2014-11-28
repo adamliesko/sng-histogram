@@ -29,7 +29,7 @@ gem 'oai', :git => "https://github.com/code4lib/ruby-oai.git"
 
 gem 'rmagick', '~> 2.13.4'
 gem 'curb'
-
+gem 'angularjs-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

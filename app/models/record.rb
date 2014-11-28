@@ -1,5 +1,5 @@
 class Record < ActiveRecord::Base
-
+  belongs_to :artist
   self.inheritance_column = :_type_disabled
   before_create :build_attributes
 
