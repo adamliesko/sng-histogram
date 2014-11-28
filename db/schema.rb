@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20141128193134) do
     t.string   "type",             default: [], array: true
     t.string   "created",          default: [], array: true
     t.string   "identifier",       default: [], array: true
-    t.string   "provenance"
+    t.string   "provenance",       default: [], array: true
     t.text     "description",      default: [], array: true
     t.string   "format",           default: [], array: true
     t.string   "format_medium",    default: [], array: true
