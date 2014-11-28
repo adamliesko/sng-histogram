@@ -1,16 +1,32 @@
 <header>
-    <h1>SNGram</h1>
-    <p>Táto aplikácia bola vytvorená počas Hackathonu organizovaného SNG 28. a 29. novembra 2014</p>
-    <a class="btn" href="http://hackathon.sng.sk/">Zistiť viac</a>
-
+    <div id="part" align="left">
+        <ul id="sddm">
+          <li><a href="#"
+                 onmouseover="mopen('m1')"
+                 onmouseout="mclosetime()">Home</a>
+            <div id="m1"
+                 onmouseover="mcancelclosetime()"
+                 onmouseout="mclosetime()">
+              <a href="#">Author1</a>
+              <a href="#">Author2</a>
+              <a href="#">Author3</a>
+            </div>
+          </li>
+        </ul>
+    </div>
+    <div id="part" align="right">Scale</div>
 </header>
 
 <div id="main" role="main">
   <section id="center">
+    <h1>SNGram</h1>
+    <p>Táto aplikácia bola vytvorená počas Hackathonu organizovaného SNG 28. a 29. novembra 2014</p>
+    <a class="btn" href="http://hackathon.sng.sk/">Zistiť viac</a>
+  </section>
+  <section id="center">
     <img src="/assets/sng.logo.jpg" alt ="sng logo">
   </section>
 </div>
-
 
 <footer id="credits">
   <p><strong>©HistroBistro</strong></p>
