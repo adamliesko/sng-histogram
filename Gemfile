@@ -28,6 +28,7 @@ gem 'spring',        group: :development
 gem 'oai', :git => "https://github.com/code4lib/ruby-oai.git"
 gem 'nokogiri'
 gem 'rmagick', '~> 2.13.4'
+gem 'curb'
 
 
 # Use ActiveModel has_secure_password
