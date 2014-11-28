@@ -26,7 +26,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 gem 'oai', :git => "https://github.com/code4lib/ruby-oai.git"
-gem 'nokogiri'
+
 gem 'rmagick', '~> 2.13.4'
 
 
