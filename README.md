@@ -1,3 +1,7 @@
-# HISTO BISTRO #
+# SNGram #
+## O projekte ##
 
-This repo contains source code of an application created on the occasion of the [SNG hackaton](http://hackathon.sng.sk/). Our application can do some cool stuff. Yes. Don't judge us.
+Tento projekt vznikol v rámci [SNG hackatononu](http://hackathon.sng.sk/) cez noc (a ďeň) z 28. na 29. novembra 2014. V tomto projekte sme sa chceli zamerať na analýzu charakteru farebnosti autorov diel v SNG. 
+
+
+
