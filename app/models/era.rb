@@ -2,7 +2,7 @@ class Era < ActiveRecord::Base
   belongs_to :artist
 
   #should get rgb values
-  def hexify_color(values)
+  def self.hexify_color(values)
     res = ''
     values.each do |val|
       if val < 15
