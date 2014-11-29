@@ -34,7 +34,7 @@ namespace :parsing do
 
           histo_hash = {}
 
-          ch = img.quantize.color_histogram
+          ch = img.quantize(color_number: 256).color_histogram
 
           ch.each_key do |key|
             color = key.to_s.tr(' ', '').split(',')

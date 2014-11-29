@@ -11,32 +11,25 @@
       <p>Táto aplikácia bola vytvorená počas Hackathonu organizovaného SNG 28. a 29. novembra 2014</p>
       <a class="btn" href="http://hackathon.sng.sk/">Zistiť viac</a>
     </section>
+    <div ng-controller="ErasController">
     <section id="center">
       <img src="/assets/sng.logo.jpg" alt="sng logo">
+
+    <select   class="cs-select cs-skin-overlay selector" ng-model="selectedArtist" ng-change= "viewAggregatedHistogram(selectedArtist)" >
+      <option style="display:none" value="">Umelec</option>
+
+            <option   value={{artist.id}}  ng-repeat = "artist in artists">{{artist.name}} {{artist.images_urls}}({{artist.records_count}})</option>
+    </select>
     </section>
 
-    <select  ng-controller="ErasController" class="selectpicker status-filter" ng-model="selectedArtist" ng-change= "viewAggregatedHistogram(selectedArtist)" >
-      <option style="display:none" value="">Umelec</option>
-      {{era.artist_id}}
-            <option   value={{artist.id}}  ng-repeat = "artist in artists">{{artist.name}} ({{artist.records_count}})</option>
-    </select>
+
+      <a ng-href="{{image}}" data-lightbox="artworks"> <img class="single-thumbnail"  ng-show='era' ng-repeat='image in era.images_urls' ng-src='{{image}}'></a>
 
 
 
+    </div>
 
 
-    <ui-select ng-model="selectedArtist"
-               theme="bootstrap"
-               ng-disabled="disabled"
-               reset-search-input="false"
-               style="width: 300px;">
-      <ui-select-match placeholder="Enter an address...">{{$select.selectedArtist}}</ui-select-match>
-      <ui-select-choices repeat="artist in artists track by $index"
-                         refresh="refreshAddresses($select.search)"
-                         refresh-delay="0">
-        <div ng-bind-html="artist.name "></div>
-      </ui-select-choices>
-    </ui-select>
 
     <div class="aggregated_histogram" ng-show = selectedArtist>
 

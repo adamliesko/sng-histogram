@@ -9,6 +9,8 @@ class Artist < ActiveRecord::Base
     records.count
   end
 
+
+
   def compute_dominant_color
     era = eras.where(date_from: nil, date_to:nil).first
     "##{era.histogram.sort_by {|_key, value| value}.last.first}"
