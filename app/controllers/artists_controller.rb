@@ -6,9 +6,10 @@ class ArtistsController < ActionController::Base
 
   end
 
+
+
   def index
     @artists = Artist.all.order(:name)
-    puts @artists.to_json(:methods => :records_count)
     respond_to do |format|
       format.json { render json: @artists.to_json(:methods => :records_count)}
     end

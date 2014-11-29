@@ -14,17 +14,15 @@
       <img src="/assets/sng.logo.jpg" alt="sng logo">
     </section>
 
-
-
-
-
-    <select class="selectpicker status-filter" ng-model="selectedArtist" >
+    <select  ng-controller="ErasController" class="selectpicker status-filter" ng-model="selectedArtist" ng-change= "viewAggregatedHistogram(selectedArtist)" >
       <option style="display:none" value="">Umelec</option>
-
-            <option ng-repeat = "artist in artists">{{artist.name}} ({{artist.records_count}})</option>
-
+            <option   value={{artist.id}}  ng-repeat = "artist in artists">{{artist.name}} ({{artist.records_count}})</option>
     </select>
 
+
+    <div class="aggregated_histogram" ng-show = selectedArtist>
+
+    </div>
 
   </div>
 </div>

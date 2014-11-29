@@ -22,12 +22,12 @@ namespace :parsing do
   end
 
   task :add_filenames_and_histogram => :environment do
-    Dir.foreach("#{Rails.root}/Fulla-nahlady") do |image|
+    Dir.foreach("#{Rails.root}/europeana-nahlady") do |image|
       next if image == '.' or image== '..'
       id="SVK:SNG.#{image.split('--')[1]}"
       r=Record.where("'#{id}' = ANY (identifier)").first
       if r
-        img = Magick::Image.read("#{Rails.root}/Fulla-nahlady/#{image}").first
+        img = Magick::Image.read("#{Rails.root}/europeana-nahlady/#{image}").first
         #gets color histogram (quantize => 256 colors)
 
         histo_hash = {}
@@ -41,7 +41,7 @@ namespace :parsing do
           green = color[1].split('=')[1].to_i & 255
           blue = color[2].split('=')[1].to_i & 255
 
-          histo_hash[Era.hexify_color(red, green, blue)] = ch[key]
+          histo_hash[Era.hexify_color([red, green, blue])] = ch[key]
         end
 
 

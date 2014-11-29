@@ -11,15 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141129004743) do
+ActiveRecord::Schema.define(version: 20141129023305) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "artist_records", force: true do |t|
-    t.integer "artist_id"
-    t.integer "record_id"
-  end
 
   create_table "artists", force: true do |t|
     t.string   "name"
@@ -29,11 +24,18 @@ ActiveRecord::Schema.define(version: 20141129004743) do
 
   add_index "artists", ["name"], name: "name_idx", using: :btree
 
+  create_table "artists_records", force: true do |t|
+    t.integer "artist_id"
+    t.integer "record_id"
+  end
+
   create_table "eras", force: true do |t|
     t.integer  "date_from"
     t.integer  "date_to"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "artist_id"
+    t.json     "histogram"
   end
 
   create_table "histograms", force: true do |t|

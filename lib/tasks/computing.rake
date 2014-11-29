@@ -6,7 +6,7 @@ namespace :computing do
     color_counts = Hash.new { |hash, key| hash[key] = 0 }
     global_histogram = Hash.new { |hash, key| hash[key] = 0 }
 
-    Artist.each do |artist|
+    Artist.find_each do |artist|
       artist.records.each do |record|
         record.histogram.each do |color, value|
           color_counts[color] += 1
@@ -18,7 +18,12 @@ namespace :computing do
         end
       end
 
-      Era.new(artist_id: artist.id, date_from: nil, date_to: nil, histogram: global_histogram)
+      era = Era.new(artist_id: artist.id, date_from: nil, date_to: nil, histogram: global_histogram)
+      if era.save
+        puts era
+      else
+        puts "so wrooong"
+      end
     end
 
   end
