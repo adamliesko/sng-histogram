@@ -4,7 +4,6 @@ class Era < ActiveRecord::Base
   #should get rgb values
 
   def images_urls
-
     urls=[]
     artist.records.each do |r|
       urls << r.identifier.select {|x| x.include?("http") && !x.include?("IMAGE")}
