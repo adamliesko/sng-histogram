@@ -16,4 +16,7 @@
 //= require bootstrap-sprockets
 //= require d3
 //= require ddm
+//= require angular.min
+//= require angular-resource.min
+//= require ./app.js
 //= require_tree .

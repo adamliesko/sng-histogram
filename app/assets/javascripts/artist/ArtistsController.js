@@ -4,7 +4,8 @@ app.controller('ArtistsController', ['$scope', '$http', 'ArtistsFactory', functi
 
     $scope.initArtists = function () {
 
-        $scope.artists = EventsFactory.query(function () {
+        $scope.artists = ArtistsFactory.query(function () {
+            console.log(2);
         });
     };
 

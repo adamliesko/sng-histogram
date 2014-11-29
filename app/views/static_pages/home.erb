@@ -1,23 +1,67 @@
 <header>
+  <nav id ="navbar"class="navbar navbar-default">
 
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+
+      <div class="navbar-header page-scroll">
+        <a id="navbar" class="navbar-brand" href="#top">
+          SNGRAM
+        </a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="page-scroll">
+            <a id="navbar" class="navbar-contact" href="#contact">tu bude timeline</a>
+          </li>
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
 </header>
 
-
+<div class="container">
+  <div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-4">
+      <select class="selectpicker status-filter"  ng-model="selectedArtist" selected="Umelec">
+        <option style="display:none">Umelec</option>
+        <option ng-repeat = "artist in artists">{{artist.name}} ({{artist.records_count}})</option>
+        <option ng-repeat = "artist in artists">1</option>
+      </select>
+    </div>
+    <div class="col-sm-4">
+      Filter by price interval: <b>€ 10</b>
+      <input id="ex2" type="text" class="span2" value="" data-slider-min="10" data-slider-max="1000" data-slider-step="5" data-slider-value="[250,450]"/> <b>€ 1000</b>
+    </div>
+    <div class="col-sm-2"></div>
+  </div>
+</div>
 <section id="graph"></section>
 
-<div id="main" role="main">
-  <section id="center">
-    <h1>SNGram</h1>
-    <p>Táto aplikácia bola vytvorená počas Hackathonu organizovaného SNG 28. a 29. novembra 2014</p>
-    <a class="btn" href="http://hackathon.sng.sk/">Zistiť viac</a>
-  </section>
-  <section id="center">
-    <img src="/assets/sng.logo.jpg" alt ="sng logo">
-  </section>
+
+<div ng-app="sng-histogram" id="main" role="main">
+  <div ng-controller='ArtistsController' ng-init="initArtists()">
+    <section id="center">
+      <h1>SNGram</h1>
+
+      <p>Táto aplikácia bola vytvorená počas Hackathonu organizovaného SNG 28. a 29. novembra 2014</p>
+      <a class="btn" href="http://hackathon.sng.sk/">Zistiť viac</a>
+    </section>
+    <section id="center">
+      <img src="/assets/sng.logo.jpg" alt="sng logo">
+    </section>
+
+
+  </div>
+
 </div>
 
     <script>
-
         var data = {"countries_msg_vol": {
             "CA": 170, "US": 393, "CU": 9, "BR": 89,
             "MX": 192, "Other": 254

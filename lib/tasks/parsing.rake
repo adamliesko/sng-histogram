@@ -42,7 +42,8 @@ namespace :parsing do
     Record.find_each do |record|
       artists =[]
       record.creator.each do |name|
-        artists << Artist.find_or_create_by(name: name).id
+        artist = Artist.find_or_create_by(name: name)
+        ArtistRecord.new(artist_id: artist.id, record_id: record.id).save
       end
       record.artist_ids = artists
       record.save
