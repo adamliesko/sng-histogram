@@ -13,7 +13,7 @@ app.controller('ErasController', ['$scope', '$http', 'ErasFactory','ErasService'
 
 
         function isBigEnough(element) {
-            return element.value >= 5.0;
+            return element.value >= 3.0;
         }
 
         ErasService.getAggregatedEra(id).then(function (asyncCastData) {
