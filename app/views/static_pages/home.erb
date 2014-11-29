@@ -8,15 +8,13 @@
       <a class="btn" href="http://hackathon.sng.sk/">Zistiť viac</a>
     </section>
 
-<div id="graph"></div>
+    <div id="graph"></div>
     <div ng-controller="ErasController">
 
     <section id="center">
 
 
-
-
-      <select   class="cs-select cs-skin-overlay selector" ng-model="selectedArtist" ng-change= "viewAggregatedHistogram(selectedArtist)" >
+      <select class="cs-select cs-skin-overlay selector" ng-model="selectedArtist" ng-change="viewAggregatedHistogram(selectedArtist)">
       <option style="display:none" value="">Umelec</option>
 
             <option   value={{artist.id}}  ng-repeat = "artist in artists">{{artist.name}} {{artist.images_urls}}({{artist.records_count}})</option>
@@ -32,7 +30,7 @@
     <div class="aggregated_histogram" ng-show = selectedArtist>
 
     </div>
-    </div>
+  </div>
   </div>
 
 </div>

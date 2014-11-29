@@ -13,17 +13,21 @@ namespace :computing do
             global_histogram[color] += value
           end
         end
+      end
 
-        global_histogram.each_key do |color|
-          if color_counts[color] != 0
-            avg = global_histogram[color] / color_counts[color]
-            sum = color_counts.inject(0) { |v, k| v += k[1] }
-            global_histogram[color] = avg / sum * 100
-          end
+      global_histogram.each do |color, value|
+        if color_counts[color] != 0
+          avg = value / color_counts[color]
+          sum = 0
+          global_histogram.each_value { |v| sum+= v }
+
+          puts "avg #{avg}"
+          puts "sum #{sum}"
+          global_histogram[color] = avg.to_f / sum * 100
         end
       end
 
-      era = Era.new(artist_id: artist.id, date_from: nil, date_to: nil, histogram: global_histogram.map{|k,v| {"color" =>k, "value" => v}})
+      era = Era.new(artist_id: artist.id, date_from: nil, date_to: nil, histogram: global_histogram.map { |k, v| {"color" => k, "value" => v} })
       if era.save
         puts era
       else
@@ -32,8 +36,6 @@ namespace :computing do
     end
 
   end
-
-
 
   task :dominant_color => :environment do
     Artist.find_each do |artist|
