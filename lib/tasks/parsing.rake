@@ -12,7 +12,9 @@ namespace :parsing do
 
         Record.new(attrs: Hash.from_xml(http.body_str.to_s).to_json).save
 
-      rescue
+      rescue Exception => e
+
+        Rails.logger.info e
         next
       end
 
@@ -32,7 +34,7 @@ namespace :parsing do
 
           histo_hash = {}
 
-          ch = img.quantize.color_histogram
+          ch = img.quantize(color_number: 256).color_histogram
 
           ch.each_key do |key|
             color = key.to_s.tr(' ', '').split(',')
@@ -60,6 +62,7 @@ namespace :parsing do
       artists =[]
       record.creator.each do |name|
         artist = Artist.find_or_create_by(name: name)
+        artist.save
         artists << artist
       end
       record.artists = artists unless artists.empty?

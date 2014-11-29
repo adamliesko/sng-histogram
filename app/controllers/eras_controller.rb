@@ -8,9 +8,8 @@ class ErasController < ActionController::Base
 
   def aggregated
     @aggregated_era = Era.where(date_from: nil, date_to: nil, artist_id: params[:id]).first
-    puts @aggregated_era
     respond_to do |format|
-      format.json { render json:  @aggregated_era}
+      format.json { render json:  @aggregated_era.to_json(:methods => :images_urls)}
     end
   end
 
