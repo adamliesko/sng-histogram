@@ -1,12 +1,11 @@
 namespace :computing do
   task :compute_histograms => :environment do
 
-    #histograms = Artist.
-
-    color_counts = Hash.new { |hash, key| hash[key] = 0 }
-    global_histogram = Hash.new { |hash, key| hash[key] = 0 }
-
     Artist.find_each do |artist|
+
+      color_counts = Hash.new { |hash, key| hash[key] = 0 }
+      global_histogram = Hash.new { |hash, key| hash[key] = 0 }
+
       artist.records.each do |record|
         record.histogram.each do |color, value|
           if value > 0
