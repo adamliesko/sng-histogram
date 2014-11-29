@@ -18,6 +18,7 @@ Pôvodný grafický návrh počíta s tým, že používateľ si vyberie autora,
 ## Aktuálny stav ##
 
 Používateľ si na stránke môže vybrať umelca. Po výbere sa pre konkrétneho umelca zobrazí histogram zobrazujúci najpoužívanejšie farby v jeho dielach a taktiež aj náhľady jeho diel. 
+
 ## Ďalšie nápady ##
 
 * porovnanie farebnosti diel viacerých autorov 
