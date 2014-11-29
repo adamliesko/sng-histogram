@@ -23,6 +23,8 @@ Používateľ si na stránke môže vybrať umelca. Po výbere sa pre konkrétne
 
 * porovnanie farebnosti diel viacerých autorov 
 * klastrovanie diel podla farebnosti 
+
+
 ## Autori ##
 * Adam Kulíšek
 * Adam Lieskovský
