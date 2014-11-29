@@ -10,7 +10,7 @@ app.controller('ErasController', ['$scope', '$http', 'ErasFactory','ErasService'
 
 
     $scope.viewAggregatedHistogram = function (id) {
-
+        console.log(20);
         ErasService.getAggregatedEra(id).then(function (asyncCastData) {
             $scope.era = asyncCastData;
             console.log($scope.era);

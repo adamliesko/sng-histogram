@@ -29,4 +29,12 @@ namespace :computing do
     end
 
   end
+
+  task :dominant_color => :environment do
+    Artist.find_each do |artist|
+      artist.dominant_color=artist.compute_dominant_color
+      puts artist.dominant_color
+      artist.save
+    end
+  end
 end
