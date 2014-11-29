@@ -1,7 +1,3 @@
-<header>
-  <script src="#{Rails.root}/bower_components/angular-ui-tags/build/angular-bootstrap-select.min.js"></script>
-
-</header>
 
 <div ng-app="sng-histogram" id="main" role="main">
   <div ng-controller='ArtistsController' ng-init="initArtists()">
@@ -22,14 +18,11 @@
     </select>
     </section>
 
-
-      <a ng-href="{{image}}" data-lightbox="artworks"> <img class="single-thumbnail"  ng-show='era' ng-repeat='image in era.images_urls' ng-src='{{image}}'></a>
-
-
+        <li ng-repeat='image in era.images_urls'>
+      <a href="{{image}}" data-lightbox="artworks"> <img class="single-thumbnail"  ng-show='era'  ng-src='{{image}}'></a>
+        </li>
 
     </div>
-
-
 
     <div class="aggregated_histogram" ng-show = selectedArtist>
 
@@ -38,6 +31,3 @@
   </div>
 </div>
 
-<footer id="credits">
-  <p><strong>©HistroBistro</strong></p>
-</footer>
