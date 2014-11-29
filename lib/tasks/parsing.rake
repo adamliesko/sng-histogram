@@ -32,14 +32,16 @@ namespace :parsing do
 
         histo_hash = {}
 
-        img.quantize.color_histogram.each do |val|
-          color = val.key.to_s.tr(' ', '').split(',')
+        ch = img.quantize.color_histogram
+
+        ch.each_key do |key|
+          color = key.to_s.tr(' ', '').split(',')
 
           red = color[0].split('=')[1].to_i & 255
           green = color[1].split('=')[1].to_i & 255
           blue = color[2].split('=')[1].to_i & 255
 
-          histo_hash[Era.hexify_color(red, green, blue)] = val.value
+          histo_hash[Era.hexify_color(red, green, blue)] = ch[key]
         end
 
 
