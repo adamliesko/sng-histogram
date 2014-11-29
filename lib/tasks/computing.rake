@@ -9,8 +9,10 @@ namespace :computing do
     Artist.find_each do |artist|
       artist.records.each do |record|
         record.histogram.each do |color, value|
-          color_counts[color] += 1
-          global_histogram[color] += value
+          if value > 0
+            color_counts[color] += 1
+            global_histogram[color] += value
+          end
         end
 
         global_histogram.each_key do |color|
@@ -22,7 +24,7 @@ namespace :computing do
       if era.save
         puts era
       else
-        puts "so wrooong"
+        puts "Error on:\n artist:#{artist.name}\n - #{record.id}"
       end
     end
 
