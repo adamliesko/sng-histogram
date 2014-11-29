@@ -7,11 +7,16 @@
       <p>Táto aplikácia bola vytvorená počas Hackathonu organizovaného SNG 28. a 29. novembra 2014</p>
       <a class="btn" href="http://hackathon.sng.sk/">Zistiť viac</a>
     </section>
-    <div ng-controller="ErasController">
-    <section id="center">
-      <img src="/assets/sng.logo.jpg" alt="sng logo">
 
-    <select   class="cs-select cs-skin-overlay selector" ng-model="selectedArtist" ng-change= "viewAggregatedHistogram(selectedArtist)" >
+<div id="graph"></div>
+    <div ng-controller="ErasController">
+
+    <section id="center">
+
+
+
+
+      <select   class="cs-select cs-skin-overlay selector" ng-model="selectedArtist" ng-change= "viewAggregatedHistogram(selectedArtist)" >
       <option style="display:none" value="">Umelec</option>
 
             <option   value={{artist.id}}  ng-repeat = "artist in artists">{{artist.name}} {{artist.images_urls}}({{artist.records_count}})</option>
@@ -27,7 +32,9 @@
     <div class="aggregated_histogram" ng-show = selectedArtist>
 
     </div>
-
+    </div>
   </div>
+
 </div>
 
+<script src="http://d3js.org/d3.v3.min.js"></script>
