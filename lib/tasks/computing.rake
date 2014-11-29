@@ -15,7 +15,11 @@ namespace :computing do
         end
 
         global_histogram.each_key do |color|
-          global_histogram[color] /= color_counts[color] if color_counts[color] != 0
+          if color_counts[color] != 0
+            avg = global_histogram[color] / color_counts[color]
+            sum = color_counts.inject(0) { |v, k| v += k[1] }
+            global_histogram[color] = avg / sum * 100
+          end
         end
       end
 
