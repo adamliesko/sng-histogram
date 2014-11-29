@@ -11,17 +11,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141128193134) do
+ActiveRecord::Schema.define(version: 20141128224420) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "artists", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "eras", force: true do |t|
+    t.integer "date_from"
+    t.integer "date_to"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "histograms", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "records", force: true do |t|
-    t.xml      "xml_body"
-    t.string   "title"
-    t.string   "title_translated"
+    t.json     "attrs"
+    t.string   "title",            default: [], array: true
+    t.string   "title_translated", default: [], array: true
     t.text     "subject",          default: [], array: true
-    t.text     "extent"
+    t.text     "extent",           default: [], array: true
     t.string   "creator",          default: [], array: true
     t.string   "type",             default: [], array: true
     t.string   "created",          default: [], array: true
@@ -30,9 +48,12 @@ ActiveRecord::Schema.define(version: 20141128193134) do
     t.text     "description",      default: [], array: true
     t.string   "format",           default: [], array: true
     t.string   "format_medium",    default: [], array: true
+    t.string   "subject_place",    default: [], array: true
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "file_name"
+    t.integer  "artist_ids",       default: [], array: true
+    t.integer  "histogram",        default: [], array: true
   end
 
 end

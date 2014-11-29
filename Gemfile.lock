@@ -36,6 +36,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    angularjs-rails (1.3.4)
     arel (5.0.1.20140414130214)
     bootstrap-sass (3.3.1.0)
       sass (~> 3.2)
@@ -47,6 +48,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.8.0)
+    curb (0.8.6)
     erubis (2.7.0)
     execjs (2.2.2)
     faraday (0.9.0)
@@ -125,8 +127,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+<<<<<<< HEAD
   bootstrap-sass
+=======
+  angularjs-rails
+>>>>>>> 45678156be0cfb65779b0d4e0b0aeef7030f1d31
   coffee-rails (~> 4.0.0)
+  curb
   jbuilder (~> 2.0)
   jquery-rails
   oai!
