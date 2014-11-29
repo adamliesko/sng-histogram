@@ -22,16 +22,16 @@ namespace :parsing do
   end
 
   task :add_filenames_and_histogram => :environment do
-    Dir.foreach("#{Rails.root}/europeana-nahlady") do |image|
+    Dir.foreach("#{Rails.root}/Fulla-nahlady") do |image|
       next if image == '.' or image== '..'
       id="SVK:SNG.#{image.split('--')[1]}"
       r=Record.where("'#{id}' = ANY (identifier)").first
       if r
-        img = Magick::Image.read("#{Rails.root}/europeana-nahlady/#{image}").first
+        img = Magick::Image.read("#{Rails.root}/Fulla-nahlady/#{image}").first
         #gets color histogram (quantize => 256 colors)
         histogram=img.quantize.color_histogram
         r.file_name = image
-        r.histogram = histogram.values
+        r.histogram = histogram
         puts r
         r.save
       end
