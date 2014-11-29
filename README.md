@@ -16,9 +16,12 @@ Pôvodný grafický návrh počíta s tým, že používateľ si vyberie autora,
 ##<img src ="https://dl.dropboxusercontent.com/u/55261792/sngram_design2.png">
 
 ## Aktuálny stav ##
-...
+
+Používateľ si na stránke môže vybrať umelca. Po výbere sa pre konkrétneho umelca zobrazí histogram zobrazujúci najpoužívanejšie farby v jeho dielach a taktiež aj náhľady jeho diel. 
 ## Ďalšie nápady ##
-...
+
+* porovnanie farebnosti diel viacerých autorov 
+* klastrovanie diel podla farebnosti 
 ## Autori ##
 * Adam Kulíšek
 * Adam Lieskovský
