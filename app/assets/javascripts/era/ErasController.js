@@ -11,10 +11,15 @@ app.controller('ErasController', ['$scope', '$http', 'ErasFactory','ErasService'
 
     $scope.viewAggregatedHistogram = function (id) {
 
+
+        function isBigEnough(element) {
+            return element.value >= 1;
+        }
+
         ErasService.getAggregatedEra(id).then(function (asyncCastData) {
             $scope.era = asyncCastData;
 
-            var colordata = $scope.era.histogram;
+            var colordata = $scope.era.histogram.filter(isBigEnough);
 
             console.log(colordata);
             var margin = {top: 20, right: 20, bottom: 30, left: 40},
@@ -37,7 +42,7 @@ app.controller('ErasController', ['$scope', '$http', 'ErasFactory','ErasService'
                 .attr("height", height + margin.top + margin.bottom)
                 .append("g")
                 .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-            x.domain(colordata.map(function(d) { return +d.color; }));
+            x.domain(colordata.map(function(d) { return d.color; }));
             y.domain([0, d3.max(colordata, function(d) { return d.value; })]);
             //svg.append("g")
             //        .attr("class", "x axis")
