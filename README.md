@@ -16,9 +16,9 @@ Pôvodný grafický návrh počíta s tým, že používateľ si vyberie autora,
 ##<img src ="https://dl.dropboxusercontent.com/u/55261792/sngram_design2.png">
 
 ## Aktuálny stav ##
-
+...
 ## Ďalšie nápady ##
-
+...
 ## Autori ##
 * Adam Kulíšek
 * Adam Lieskovský
