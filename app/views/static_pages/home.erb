@@ -1,38 +1,64 @@
 
+
 <div ng-app="sng-histogram" id="main" role="main">
   <div ng-controller='ArtistsController' ng-init="initArtists()">
-    <section id="center">
-      <h1>SNGram</h1>
 
-      <p>Táto aplikácia bola vytvorená počas Hackathonu organizovaného SNG 28. a 29. novembra 2014</p>
-      <a class="btn" href="http://hackathon.sng.sk/">Zistiť viac</a>
-    </section>
+
+    <nav id="our-navbar" class="navbar navbar-default navbar-fixed-top" role="navigation">
+
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+          <img  class="pull-left" id="sng-logo"src="/assets/header-logo.png" alt="sng-logo"/><a class="navbar-brand" href="#">SNGram</a>
+
+        </div>
+
+    </nav>
+
+
+
 
     <div id="graph"></div>
     <div ng-controller="ErasController">
 
-    <section id="center">
+      <section id="center">
+
+    <label>Choose your hero: </label>
+        <select style="max-width: 200px;"class="cs-select cs-skin-overlay selector" ng-model="selectedArtist" ng-change="viewAggregatedHistogram(selectedArtist)">
+          <option style="display:none" value="">Umelec</option>
+
+          <option value={{artist.id}} ng-repeat="artist in artists">{{artist.name}}
+            {{artist.images_urls}}({{artist.records_count}})
+          </option>
+        </select>
+      </section>
+
+        <div class="images">
+          <li ng-repeat='image in era.images_urls'>
+            <a href="{{image}}" data-lightbox="artworks">
+              <img class="single-thumbnail" ng-show='era' ng-src='{{image}}'></a>
+          </li></div>
 
 
-      <select class="cs-select cs-skin-overlay selector" ng-model="selectedArtist" ng-change="viewAggregatedHistogram(selectedArtist)">
-      <option style="display:none" value="">Umelec</option>
-
-            <option   value={{artist.id}}  ng-repeat = "artist in artists">{{artist.name}} {{artist.images_urls}}({{artist.records_count}})</option>
-    </select>
-    </section>
-
-        <li ng-repeat='image in era.images_urls'>
-      <a href="{{image}}" data-lightbox="artworks"> <img class="single-thumbnail"  ng-show='era'  ng-src='{{image}}'></a>
-        </li>
 
     </div>
 
-    <div class="aggregated_histogram" ng-show = selectedArtist>
+
+
+    <div class="aggregated_histogram" ng-show=selectedArtist>
+
+      <script src="http://d3js.org/d3.v3.min.js"></script>
 
     </div>
   </div>
-  </div>
-
 </div>
 
-<script src="http://d3js.org/d3.v3.min.js"></script>
+
+
+
+

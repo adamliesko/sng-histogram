@@ -13,7 +13,7 @@ app.controller('ErasController', ['$scope', '$http', 'ErasFactory','ErasService'
 
 
         function isBigEnough(element) {
-            return element.value >= 1;
+            return element.value >= 5.0;
         }
 
         ErasService.getAggregatedEra(id).then(function (asyncCastData) {
@@ -23,8 +23,8 @@ app.controller('ErasController', ['$scope', '$http', 'ErasFactory','ErasService'
 
             console.log(colordata);
             var margin = {top: 20, right: 20, bottom: 30, left: 40},
-                width = 600 - margin.left - margin.right,
-                height = 400 - margin.top - margin.bottom;
+                width = 800 - margin.left - margin.right,
+                height = 350 - margin.top - margin.bottom;
             var x = d3.scale.ordinal()
                 .rangeRoundBands([0, width], .1);
             var y = d3.scale.linear()
