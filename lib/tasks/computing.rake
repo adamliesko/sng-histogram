@@ -27,7 +27,7 @@ namespace :computing do
         end
       end
 
-      era = Era.new(artist_id: artist.id, date_from: nil, date_to: nil, histogram: global_histogram.map{|k,v| {"color" =>k, "value" => v}})
+      era = Era.new(artist_id: artist.id, date_from: nil, date_to: nil, histogram: global_histogram.map { |k, v| {"color" => k, "value" => v} })
       if era.save
         puts era
       else
