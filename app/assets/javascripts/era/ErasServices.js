@@ -13,10 +13,19 @@ app.factory('ErasService', function ($http) {
     var ErasService = {
         getAggregatedEra: function (id) {
             // $http returns a 'promise'
-            params: {artist_id: id}
-            return $http.( url: "/aggregated_histogram/:artist_id.json",
+
+            return $http( {url: "/aggregated_histogram/",
                 method: "GET",
-                params: {artist_id: id}).then(function (response) {
+                params: {id: id}}).then(function (response) {
+                return response.data;
+            });
+        },
+        getSelectedEra: function (id) {
+            // $http returns a 'promise'
+
+            return $http( {url: "/selected_histogram/:id",
+                method: "GET",
+                params: {id: id,date_from: date_from, date_to: date_to, level: level}}).then(function (response) {
                 return response.data;
             });
         }

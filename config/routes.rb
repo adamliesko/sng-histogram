@@ -10,5 +10,6 @@ Rails.application.routes.draw do
 
     resources :eras, only: [:index, :show, :aggregated]
   end
-  get 'aggregated_histogram/:artist_id', to: 'eras#aggregated'
+  get 'aggregated_histogram/', to: 'eras#aggregated'
+  get 'selected_histogram/', to: 'eras#selected'
 end

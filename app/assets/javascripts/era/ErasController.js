@@ -4,7 +4,7 @@ app.controller('ErasController', ['$scope', '$http', 'ErasFactory','ErasService'
 
 
     // Assign service to scope if you'd like to be able call it from your view also
-    $scope.avengers = AvengersService;
+
 
     // Call the async method and then do stuff with what is returned inside the function
 
@@ -13,6 +13,7 @@ app.controller('ErasController', ['$scope', '$http', 'ErasFactory','ErasService'
 
         ErasService.getAggregatedEra(id).then(function (asyncCastData) {
             $scope.era = asyncCastData;
+            console.log($scope.era);
         });
 
     };

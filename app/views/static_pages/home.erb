@@ -1,4 +1,5 @@
 <header>
+  <script src="#{Rails.root}/bower_components/angular-ui-tags/build/angular-bootstrap-select.min.js"></script>
 
 </header>
 
@@ -16,9 +17,26 @@
 
     <select  ng-controller="ErasController" class="selectpicker status-filter" ng-model="selectedArtist" ng-change= "viewAggregatedHistogram(selectedArtist)" >
       <option style="display:none" value="">Umelec</option>
+      {{era.artist_id}}
             <option   value={{artist.id}}  ng-repeat = "artist in artists">{{artist.name}} ({{artist.records_count}})</option>
     </select>
 
+
+
+
+
+    <ui-select ng-model="selectedArtist"
+               theme="bootstrap"
+               ng-disabled="disabled"
+               reset-search-input="false"
+               style="width: 300px;">
+      <ui-select-match placeholder="Enter an address...">{{$select.selectedArtist}}</ui-select-match>
+      <ui-select-choices repeat="artist in artists track by $index"
+                         refresh="refreshAddresses($select.search)"
+                         refresh-delay="0">
+        <div ng-bind-html="artist.name "></div>
+      </ui-select-choices>
+    </ui-select>
 
     <div class="aggregated_histogram" ng-show = selectedArtist>
 

@@ -4,7 +4,7 @@ class CreateEras < ActiveRecord::Migration
 
       t.integer :date_from, null: true
       t.integer :date_to, null: true
-      t.json :era
+      t.json :histogram
 
       t.timestamps
     end
