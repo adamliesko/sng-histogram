@@ -25,6 +25,4 @@ Pôvodný grafický návrh počíta s tým, že používateľ si vyberie autora,
 * Juraj Kochjar
 * Roman Roštár
 
-Publikované pod MIT licenciou (c) 2014
-
 
