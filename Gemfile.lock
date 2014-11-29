@@ -127,11 +127,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-<<<<<<< HEAD
-  bootstrap-sass
-=======
   angularjs-rails
->>>>>>> 45678156be0cfb65779b0d4e0b0aeef7030f1d31
+  bootstrap-sass
   coffee-rails (~> 4.0.0)
   curb
   jbuilder (~> 2.0)

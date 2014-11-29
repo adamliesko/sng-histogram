@@ -1,21 +1,9 @@
 <header>
-    <div id="part" align="left">
-        <ul id="sddm">
-          <li><a href="#"
-                 onmouseover="mopen('m1')"
-                 onmouseout="mclosetime()">Home</a>
-            <div id="m1"
-                 onmouseover="mcancelclosetime()"
-                 onmouseout="mclosetime()">
-              <a href="#">Author1</a>
-              <a href="#">Author2</a>
-              <a href="#">Author3</a>
-            </div>
-          </li>
-        </ul>
-    </div>
-    <div id="part" align="right">Scale</div>
+
 </header>
+
+
+<section id="graph"></section>
 
 <div id="main" role="main">
   <section id="center">
@@ -27,6 +15,50 @@
     <img src="/assets/sng.logo.jpg" alt ="sng logo">
   </section>
 </div>
+
+    <script>
+
+        var data = {"countries_msg_vol": {
+            "CA": 170, "US": 393, "CU": 9, "BR": 89,
+            "MX": 192, "Other": 254
+        }};
+
+        var diameter = 600;
+
+        var svg = d3.select('#graph').append('svg')
+                .attr('width', diameter)
+                .attr('height', diameter);
+
+        var bubble = d3.layout.pack()
+                .size([diameter, diameter])
+                .value(function(d) {return d.size;}) // new data will be loaded to bubble layout
+                .padding(3);
+
+        function processData(data) {
+            var obj = data.countries_msg_vol;
+
+            var newDataSet = [];
+
+            for(var prop in obj) {
+                newDataSet.push({name: prop,
+                    className: prop.toLowerCase(), size: obj[prop]});
+            }
+            return {children: newDataSet};
+        }
+
+        var nodes = bubble.nodes(processData(data))
+            // filter out the outer bubble
+                .filter(function(d) { return !d.children; });
+
+        var vis = svg.selectAll('circle')
+                .data(nodes, function(d) { return d.name; });
+
+        vis.enter().append('circle')
+                .attr('transform', function(d) { return 'translate('
+                        + d.x + ',' + d.y + ')'; })
+                .attr('r', function(d) { return d.r; })
+                .attr('class', function(d) { return d.className; });
+    </script>
 
 <footer id="credits">
   <p><strong>©HistroBistro</strong></p>

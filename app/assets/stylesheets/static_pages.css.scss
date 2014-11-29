@@ -1,6 +1,12 @@
 // Place all the styles related to the static_pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.ca, .us {fill: #DF4949;}
+.uc, .br, .mx {fill: #E27A3F;}
+.other {fill: #45B29D;}
+
+
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -108,7 +114,11 @@ section img {
   display: block;
   margin: 0 auto;
 }
-
+#graph{
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+}
 
 ///////// DROPDOWN MENU
 

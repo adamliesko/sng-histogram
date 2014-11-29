@@ -22,9 +22,11 @@ ActiveRecord::Schema.define(version: 20141128224420) do
     t.datetime "updated_at"
   end
 
+  add_index "artists", ["name"], name: "name_idx", using: :btree
+
   create_table "eras", force: true do |t|
-    t.integer "date_from"
-    t.integer "date_to"
+    t.integer  "date_from"
+    t.integer  "date_to"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -32,14 +34,17 @@ ActiveRecord::Schema.define(version: 20141128224420) do
   create_table "histograms", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "artist_id"
   end
 
+  add_index "histograms", ["artist_id"], name: "fk_artist_id_2", using: :btree
+
   create_table "records", force: true do |t|
-    t.json     "attrs"
-    t.string   "title",            default: [], array: true
-    t.string   "title_translated", default: [], array: true
+    t.xml      "xml_body"
+    t.string   "title"
+    t.string   "title_translated"
     t.text     "subject",          default: [], array: true
-    t.text     "extent",           default: [], array: true
+    t.text     "extent"
     t.string   "creator",          default: [], array: true
     t.string   "type",             default: [], array: true
     t.string   "created",          default: [], array: true
@@ -48,12 +53,14 @@ ActiveRecord::Schema.define(version: 20141128224420) do
     t.text     "description",      default: [], array: true
     t.string   "format",           default: [], array: true
     t.string   "format_medium",    default: [], array: true
-    t.string   "subject_place",    default: [], array: true
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "file_name"
     t.integer  "artist_ids",       default: [], array: true
-    t.integer  "histogram",        default: [], array: true
+    t.json     "histogram"
+    t.integer  "artist_id"
   end
+
+  add_index "records", ["artist_id"], name: "fk_artist_id", using: :btree
 
 end
