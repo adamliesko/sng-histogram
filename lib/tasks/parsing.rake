@@ -29,7 +29,21 @@ namespace :parsing do
       if r
         img = Magick::Image.read("#{Rails.root}/Fulla-nahlady/#{image}").first
         #gets color histogram (quantize => 256 colors)
-        histogram=img.quantize.color_histogram
+
+        histo_hash = {}
+
+        img.quantize.color_histogram.each do |val|
+          color = val.key.to_s.tr(' ', '').split(',')
+
+          red = color[0].split('=')[1].to_i & 255
+          green = color[1].split('=')[1].to_i & 255
+          blue = color[2].split('=')[1].to_i & 255
+
+          histo_hash[Era.hexify_color(red, green, blue)] = val.value
+        end
+
+
+        histogram= histo_hash.to_json
         r.file_name = image
         r.histogram = histogram
         puts r
