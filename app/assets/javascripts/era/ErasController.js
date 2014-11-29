@@ -15,32 +15,8 @@ app.controller('ErasController', ['$scope', '$http', 'ErasFactory','ErasService'
             $scope.era = asyncCastData;
 
             var colordata = $scope.era.histogram;
-            var colordata = [
-                {
-                    "color" :"#00000",
-                    "value": "76"
-                },
-                {
-                    "color" :"#38di4f",
-                    "value": "54"
-                },
-                {
-                    "color" :"#E27A3F",
-                    "value": "100"
-                },
-                {
-                    "color" :"#e00213",
-                    "value": "89"
-                },
-                {
-                    "color" :"#45B29D",
-                    "value": "6"
-                },
-                {
-                    "value": "4",
-                    "color" :"#000000"
-                }
-            ];
+
+            console.log(colordata);
             var margin = {top: 20, right: 20, bottom: 30, left: 40},
                 width = 600 - margin.left - margin.right,
                 height = 400 - margin.top - margin.bottom;
@@ -61,7 +37,7 @@ app.controller('ErasController', ['$scope', '$http', 'ErasFactory','ErasService'
                 .attr("height", height + margin.top + margin.bottom)
                 .append("g")
                 .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-            x.domain(colordata.map(function(d) { return d.color; }));
+            x.domain(colordata.map(function(d) { return +d.color; }));
             y.domain([0, d3.max(colordata, function(d) { return d.value; })]);
             //svg.append("g")
             //        .attr("class", "x axis")
@@ -75,7 +51,7 @@ app.controller('ErasController', ['$scope', '$http', 'ErasFactory','ErasService'
                 .attr("width", x.rangeBand())
                 .attr("y", function(d) { return y(d.value); })
                 .attr("height", function(d) { return height - y(d.value); })
-                .style("fill", function(d) { return d.color; });
+                .style("fill", function(d) { return "#"+d.color; });
             function type(d) {
                 d.frequency = +d.frequency;
                 return d;
