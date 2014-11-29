@@ -148,6 +148,16 @@ section img {
   background: url('../images/down_arrow_select.jpg') no-repeat right #ddd;
   border: 1px solid #ccc;
 }
+
+svg{
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+  stroke:#00E800;
+  stroke-width:3;
+  fill-opacity:0.9;
+  stroke-opacity:0.1
+}
 ///////// DROPDOWN MENU
 
 #sddm{
